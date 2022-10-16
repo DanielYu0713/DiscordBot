@@ -4,6 +4,7 @@ intents = discord.Intents.default()
 intents.members = True
 intents.typing = False
 intents.presences = False
+intents.messages = True
 
 from discord.ext import commands
 
@@ -27,8 +28,8 @@ async def on_member_remove(member):
         await channel.send(f'{member} leave')
 
 #ctx = context(上下文),use ctx to let bot know what's channel have new information, and reply
-@bot.command()  #When we write command, we need ctx argument
-async def aaaaa(ctx):
+@commands.command()  #When we write command, we need ctx argument
+async def ping(ctx):
     await ctx.send(f'{round(bot.latency*1000)} ms') #send the ping(ms)
 
 
